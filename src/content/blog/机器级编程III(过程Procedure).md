@@ -137,7 +137,7 @@ dst只能是寄存器.
 参数,局部变量...
 
 ## 举例
-```C
+```c
 /* incr */
 long incr(long *p,long val){
 	long x = *p;
@@ -154,7 +154,7 @@ incr:
 	movq    %rsi, (%rdi)
 ```
 
-```C
+```c
 /* call_incr */
 long call_incr(){
 	long v1 = 12345;
@@ -195,7 +195,7 @@ unuse          ←%rsp|
 
 # 阐述递归
 使用递归计数unsigned int 的1位的个数
-```C
+```c
 /* Recursive popcount */
 long pcount_r(unsigned long x){
 	if(x==0)

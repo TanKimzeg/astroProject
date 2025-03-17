@@ -30,7 +30,7 @@ const { Content, remarkPluginFrontmatter } = await post.render();
     word={remarkPluginFrontmatter.totalCharCount}
     time={remarkPluginFrontmatter.readingTime}
     isBlog="true"
-    comment="false"
+    /* */
   >
     <TocCollapse headings={remarkPluginFrontmatter.headings} />
     <Content />

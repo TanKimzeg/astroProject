@@ -62,7 +62,7 @@ Linux shell创建的进程都有三个初始的**文件描述符**:
 
 # 文件元数据(Metadata)
 stat数据结构:
-```C
+```c
 /* Metadata returned by the stat and fstat functions */ 
 struct stat { 
 	dev_t st_dev; /* Device */ 
@@ -106,7 +106,7 @@ struct stat {
 	![](attachments/Pasted%20image%2020250204111606.png)
 
 # I/O重定向
-```C
+```c
 #include <unistd.h>
 int dup2(int oldfd, int newfd);
 ```
@@ -124,7 +124,7 @@ int dup2(int oldfd, int newfd);
 >我记得在网络编程的实践中,父进程`close`文件描述符,子进程的该文件还在,必须子进程也`close`才是彻底关闭.而`dup2`减少了oldfd的refcnt,却似乎不会关闭文件.它们的具体实现是如何操作descriptor table 和 open file table的呢?
 ## 引发复杂的分析
 假设fname文件的内容是"abcde",以下程序的输出结果分别是什么?
-```C
+```c
 /* ffiles1.c */
 #include "csapp.h" 
 int main(int argc, char *argv[]) { 
@@ -164,7 +164,7 @@ int main(int argc, char *argv[]) {
 
 ```
 fname的内容是什么?
-```C
+```c
 #include "csapp.h" 
 int main(int argc, char *argv[]) { 
 	int fd1, fd2, fd3; 
@@ -180,7 +180,7 @@ int main(int argc, char *argv[]) {
 }
 ```
 遍历获取目录下的文件名:
-```C
+```c
 #include <sys/types.h>
 #include <dirent.h>
 { 

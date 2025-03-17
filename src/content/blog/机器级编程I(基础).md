@@ -35,7 +35,7 @@ tags:
 1. 编译成汇编语言
 
 C语言源代码:
-```C
+```c
 /* sum.c */
 long plus(long x, long y);
 
@@ -130,7 +130,7 @@ $$
 不允许从一个内存直接复制到另一个内存,立即数是常量不能当"右值",所以一共有5中组合
 
 - 一个简单的例子
-```C
+```c
 void swap(long *xp,long *yp){
 	long t0 = *xp;
 	long t1 = *yp;
@@ -173,7 +173,7 @@ swap:
 `leaq src,dst`:src是一块内存,将其对应的地址保存到dst.类似于C语言中的&取值运算符.dst必须是寄存器.
 看起来像是mov指令,但这是一种非常方便的算术运算方式,无需内存引用,所以C编译器喜欢使用它
 - 一个简单的例子
-```C
+```c
 long m12(long x){
 	return x*12;
 }
@@ -204,7 +204,7 @@ salq $2, %rax               # 右移2位,相当于乘4
 `incq dst` | `dst = -dst;`
 
 # 总结
-``` C
+```c
 long arith (long x, long y, long z) {
 	long t1 = x+y; 
 	long t2 = z+t1; 

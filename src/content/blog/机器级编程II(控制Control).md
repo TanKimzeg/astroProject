@@ -60,7 +60,7 @@ set* | 条件 | 含义
 在x86-64整数寄存器中,能够使用最低一字节来存放以上结果
 ![](attachments/Pasted%20image%2020250118232534.png)
 - 举例
-```C
+```c
 int gt(long x,long y){
 	return x > y;
 }
@@ -94,7 +94,7 @@ j* | 条件 | 含义
 `jb` | CF | below(unsigned)
 
 ## 使用条件分支的例子(旧式)
-```C
+```c
 /* control.c */
 long absdiff(long x,long y){
 	long result;
@@ -123,7 +123,7 @@ absdiff:
 	ret
 ```
 可以看到,jump语句就像C语言中的goto语句
-```C
+```c
 long absdiff_j (long x, long y) {
 	long result; 
 	int ntest = x <= y; 
@@ -140,7 +140,7 @@ Done:
 将if-then-else逻辑中then和else都先执行得到两个结果,然后再决定使用哪一个结果
 事实证明在非常简单的运算中这样更有效率!
 原因:分支会对管道中的指令流造成极大的干扰;条件移动不需要控制权转移
-```C
+```c
 /* 三元运算符 */
 	val = test ? then_expr : else_expr;
 /* goto */
@@ -170,7 +170,7 @@ absdiff:
 # 循环
 
 在C语言中,循环结构的实现语句有while语句,for语句,do-while语句,还可以使用goto语句来跳转.而使用goto更接近于汇编语言的实现方式.
-```C
+```c
 /* 使用goto */
 long pcount_goto (unsigned long x) { 
 	long result = 0; 
@@ -193,7 +193,7 @@ long pcount_goto (unsigned long x) {
 	rep; ret
 ```
 将while语句转换成goto循环:
-```C
+```c
 /* whlie */
 while(test)
 	{BODY}
@@ -210,7 +210,7 @@ DONE:
 	...
 ```
 将do-while语句转换成goto循环:
-```C
+```c
 /* do-whlie */
 do
 	{BODY}
@@ -227,7 +227,7 @@ DONE:
 ```
 值得一提的是,gcc使用不同的优化级别会对while语句做出不同的翻译
 1. 使用-Og
-```C
+```c
 /* whlie */
 while(test)
 	{BODY}
@@ -245,7 +245,7 @@ DONE:
 ```
 
 2. 使用-O1
-```C
+```c
 /* whlie */
 while(test)
 	{BODY}
@@ -271,7 +271,7 @@ DONE:
 ```
 仔细看,-Og完全顺着C代码的逻辑;而-O1不使用TEST标志,更加简洁.
 对于for循环,可以转换成while语句
-```C
+```c
 /* for */
 for(Init;Test;Update)
 	Body
@@ -294,7 +294,7 @@ switch的每一种case在编译器编译时必须是常量.
 把所有代码块编译成一块总代码,并将它们存储在内存,加载内存就能得到这些代码块
 跳转表就像一个数组,如果知道索引就能随机存取,不必遍历寻找.这就是switch语句的汇编代码的基本思想.
 - 举例说明
-```C
+```c
 long switch_eg(long x){
 	long w = 1;
 	switch(x){
@@ -334,7 +334,7 @@ quad只是一个声明,表示这里需要一个8字节的值
 
 现在,分别来看各个代码块
 - `x == 1`
-```C
+```c
 switch(x){
 	case 1:
 		w = y*z;
@@ -348,7 +348,7 @@ switch(x){
 	ret
 ```
  - Fall Through的情况
-```C
+```c
 switch(x){
 	...
 	case 2:
@@ -361,7 +361,7 @@ switch(x){
 }
 ```
 分割为
-```C
+```c
 case 2:
 	w = y/z;
 	goto merge;

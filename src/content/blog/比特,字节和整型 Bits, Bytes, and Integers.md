@@ -140,13 +140,13 @@ $$ (11010)_{2} \ \ mod \ \ 2^4 = (1010)_{2}$$
 	- 正溢出
 		两个正数的和大于TMax,会变成负数
 	所以,对于以下这两段代码:
-	``` C
+	``` c
 	unsigned i;
 	for (i = cnt-2; i >= 0; i--) 
 		a[i] += a[i+1];
 	```
 	及
-	``` C
+	``` c
 	#define DELTA sizeof(int) 
 	int i; 
 	for (i = CNT; i-DELTA >= 0; i-= DELTA) 
@@ -155,13 +155,13 @@ $$ (11010)_{2} \ \ mod \ \ 2^4 = (1010)_{2}$$
 	```
 	都会发生异常!
 	正确的做法是
-	``` C
+	``` c
 	unsigned i; 
 	for (i = cnt-2; i < cnt; i--) 
 		a[i] += a[i+1];
 	```
 	精益求精的是
-	``` C
+	``` c
 	size_t i; 
 	for (i = cnt-2; i < cnt; i--) 
 		a[i] += a[i+1];
@@ -213,7 +213,7 @@ $$ u\gg k == \left\lfloor  \frac{u}{2^k}  \right\rfloor $$
 小端序:低位存储在低地址
 ![](attachments/Pasted image%2020250114231324.png%20)
 检查数据在内存中的存储顺序:
-``` C
+``` c
 typedef unsigned char *pointer; 
 void show_bytes(pointer start, size_t len){ 
 	size_t i; 

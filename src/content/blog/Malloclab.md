@@ -18,7 +18,7 @@ CFLAGS = -Wall -O0 -m32
 值得注意的是,这里的 `-m32`标签强制使用32位编译,也就是说,相当于32位系统,指针大小是4字节!一开始没注意,导致了很多困惑.
 
 下载12个traces文件,修改config.h:
-```C
+```c
 //#define TRACEDIR "/afs/cs/project/ics2/im/labs/malloclab/traces/"  
 #define TRACEDIR "./traces/"
 ```
@@ -39,7 +39,7 @@ CFLAGS = -Wall -O0 -m32
 # 代码解释
 我使用的策略是隔离空闲块列表 + first fit + 头插法.
 在config.h文件中指明了最大堆空间:
-```C
+```c
 #define MAX_HEAP (20*(1<<20))  /* 20 MB */
 ```
 所以根据2的幂可以确定seglist的元素个数.

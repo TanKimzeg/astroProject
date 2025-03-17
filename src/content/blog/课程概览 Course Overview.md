@@ -52,7 +52,7 @@ $$ x^2\ge0 $$
 随机存取存储器是一种非物理抽象概念
 
 ## 4:提升性能
-``` C
+```c
 void copyij(int src[2048][2048], int dst[2048][2048]) 
 { 
 	int i,j; 
@@ -62,7 +62,7 @@ void copyij(int src[2048][2048], int dst[2048][2048])
 }
 ```
 4.3ms
-``` C
+```c
 void copyij(int src[2048][2048], int dst[2048][2048]) 
 { 
 	int i,j; 

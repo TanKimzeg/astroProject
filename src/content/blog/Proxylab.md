@@ -55,7 +55,7 @@ Proxy-Connection: close
 对原始URI 的分割和讨论挺烦的,没用上正则表达式.
 
 记录一下主函数,我借鉴了tiny服务器的设计,可以看到非常简洁:
-```C
+```c
 int main(int argc, char **argv)
 {
     int listenfd, connfd;
@@ -79,7 +79,7 @@ int main(int argc, char **argv)
 }
 ```
 `proxy`函数也具有较好可读性:
-```C
+```c
 void proxy(int connfd){
     char buf[MAXLINE], method[MAXLINE], uri[MAXLINE], version[MAXLINE];
     char serv_req[MAXLINE];
@@ -146,7 +146,7 @@ basicScore: 40/40
 回顾[[同步#生产者-消费者问题]],我们需要维护一个线程池.
 我创建了sbuf.h和sbuf.c文件,并修改Makefile.
 没学过CMake,但是照猫画虎:
-```CMake
+```cmake
 sbuf.o: sbuf.c sbuf.h
     $(CC) $(CFLAGS) -c sbuf.c
   
@@ -155,7 +155,7 @@ proxy: proxy.o csapp.o sbuf.o
 ```
 然后,查看CS:APP课本(好像是690多页)的代码,稍作修改,非常轻松就实现了线程池并发.
 ## 留一份完整代码:
-```C
+```c
 #include <stdio.h>  
 #include "csapp.h"  
 #include "sbuf.h"  

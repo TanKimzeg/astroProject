@@ -14,7 +14,7 @@ tags:
 - Phase 1~3: 利用栈溢出攻击
 - Phase 4~5: 利用ROP攻击
 ctarget 和 rtarget都用getbuf函数读取输入:
-```C
+```c
 unsigned getbuf(){
 	char buf[BUFFER_SIZE];
 	Gets(buf);
@@ -79,7 +79,7 @@ gcc -c example.s
 
 # ctarget:Code Injection Attacks
 `getbuf()`函数被 `test()`函数调用:
-```C
+```c
 void test(){
 	int val;
 	val = getbuf();
@@ -89,7 +89,7 @@ void test(){
 
 ## Phase 1
 这个问题中,需要我修改返回地址,重定向到`touch1()`函数:
-```C
+```c
 void touch1(){
 	vlevel = 1;
 	printf("Touch1!: You called touch1()\n");
@@ -160,7 +160,7 @@ PASS: Would have posted the following:
 
 ## Phase 2
 这个问题不仅需要跳转到 `touch2()`函数,还需要修改%rdi寄存器的值传入我的cookie.
-```C
+```c
 void touch2(unsigned val){
 	vlevel = 2;
 	if(val==cookie){
@@ -258,7 +258,7 @@ PASS: Would have posted the following:
 
 ## Phase 3
 Phase2中我给%rdi寄存器赋值传参,而这个问题需要以字符指针传参.
-```C
+```c
 void touch3(char *sval){
 	vlevel = 3;
 	if(hexmatch(cookie, sval)){
@@ -586,7 +586,7 @@ PASS: Would have posted the following:
 # 48 89 c7 c3 :     movq    %rax,%rdi;ret
 ```
 如何在栈空间中连续存放字符串呢?我注意到farm.c文件中有一个 `add_xy`函数:
-```C
+```c
 long add_xy(long x, long y)  
 {  
     return x+y;  

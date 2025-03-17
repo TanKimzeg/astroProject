@@ -17,7 +17,7 @@ sudo apt-get install gdb
 ```
 
 在bomb.c文件中的是main()函数,这里截取主要部分,看到程序逻辑:
-```C
+```c
 #include <stdio.h>  
 #include <stdlib.h>  
 #include "support.h"  
@@ -496,7 +496,7 @@ ni
 至此,我发现了
 - 调用函数需要栈顶指针减小,函数返回栈顶指针回去
 - `sscanf`函数声明为
-```C
+```c
 int sscanf(const char *s, const char *format, ... );
 ```
 这就是format指针用第二个参数%esi传入的原因.

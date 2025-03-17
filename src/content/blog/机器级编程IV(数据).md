@@ -12,13 +12,13 @@ tags:
 之前讨论的数据类型都是整型,这部分是将多个数据元素聚合在一起.
 # 数组
 ## 数组分配空间
-```C
+```c
 	ElemType A[L];
 ```
 在内存中连续分配 L * sizeof(ElemType) 字节的空间.
 
 ## 读取数组
-```C
+```c
 #define ZLEN 5
 typedef int zip_dig[ZLEN];
 
@@ -34,7 +34,7 @@ int get_digit(zip_dig z, int digit){
 ```
 
 ## 修改数组
-```C
+```c
 void zincr(zip_dig z){
 	size_t i;
 	for(i = 0;i < ZLEN;i++)
@@ -56,11 +56,11 @@ void zincr(zip_dig z){
 ```
 
 ## 多维数组
-```C
+```c
 	ElemType A[R][C];
 ```
 在数据结构中我已经学过矩阵的相关操作,跟这里是贯通的.数组大小占 `R*C*sizeof(ElemType)` 字节,在内存中按行主序储存. `A[i][j]`的地址是 `A+(i*C+j)*sizeof(ElemType)`
-```C
+```c
 int get_pgh_digit (int index, int dig) { 
 	return pgh[index][dig]; 
 }
@@ -74,7 +74,7 @@ get_phg_digit:
 ```
 
 另一种声明方式是
-```C
+```c
 #define UCOUNT 3
 zip_dig CMU = {1,5,2,1,3};
 zip_dig MIT = {0,2,1,3,9};
@@ -100,7 +100,7 @@ get_univ_digit:
 # 结构体
 
 ## 结构体分配空间
-```C
+```c
 struct rec{
 	int a[4];
 	size_t i;
@@ -134,7 +134,7 @@ get_next:
 > 我在用结构体设计IPv4报文头部的时候发现了这种现象.
 
 一个这样的结构体:
-```C
+```c
 struct s1{
 	char c;
 	int i[2];
@@ -161,7 +161,8 @@ SSE则使用%xmm0 ~ %xmm15.
 CS:APP书中讲解的是AVX体系,视频讲解的是SSE体系.我亲自实验了两者,它们的指令是不一样的:
 Ctrl+F12生成汇编代码
 ![](attachments/Pasted%20image%2020250122183441.png)
-```C
+
+```c
 double sum(double a,double b){  
     return a+b;  
 }  

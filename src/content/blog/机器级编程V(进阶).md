@@ -18,7 +18,7 @@ tags:
 - 数据(Data):固定分配的数据,全局变量
 - 共享库(Share Libraries)/文本(Text):可执行的机器指令,只读.程序执行时会**动态加载**库函数
 
-```C
+```c
 char big_array[1L<<24]; /* 16 MB */ 
 char huge_array[1L<<31]; /* 2 GB */ 
 int global = 0; 
@@ -45,7 +45,7 @@ int main () {
 在学习C语言的过程中我已经了解到有一些处理字符串的函数是不安全的,没有边界检查.比如 `gets()`  `*scanf()` `strcat()` 函数等等.
 
 这里有一个不安全的函数:
-```C
+```c
 void echo() { 
 	char buf[4]; /* Way too small! */ 
 	gets(buf); 
@@ -163,7 +163,7 @@ ROP利用现有代码,需要栈溢出漏洞,没有克服canary保护
 
 # 联合体(Union)
 C语言中,结构体会为每个字段分配单独的存储空间;而联合体使用占空间最大的字段的大小来分配内存,智能存储一个字段的值.
-```C
+```c
 union U1 { 
 	char c; 
 	int i[2]; 
