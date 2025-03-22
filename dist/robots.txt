@@ -1,4 +1,4 @@
 
 User-agent: *
 Allow: /
-Sitemap: http://www.tankimzeg.top/sitemap-index.xml
+Sitemap: https://www.tankimzeg.top/sitemap-index.xml
