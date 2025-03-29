@@ -1,5 +1,11 @@
 # vscode setting
-.vscode
+.vscode/
+
+# public pictures
+public/
+
+# github
+.github/
 
 # build output
 src/
