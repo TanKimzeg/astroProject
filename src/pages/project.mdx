@@ -1,0 +1,39 @@
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseCard from "../components/BaseCard.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import Collapse from "../components/mdx/Collapse.astro";
+import Diff from "../components/mdx/Diff.astro";
+import Error from "../components/mdx/Error.astro";
+import Info from "../components/mdx/Info.astro";
+import Kbd from "../components/mdx/Kbd.astro";
+import Success from "../components/mdx/Success.astro";
+import Warning from "../components/mdx/Warning.astro";
+import TimeLine from "../components/mdx/TimeLine.astro";
+import LinkCard from "../components/mdx/LinkCard.astro";
+
+<BaseLayout title="Project">
+  <BaseCard title="Project">
+# Project
+
+---
+
+  </BaseCard>
+  <ProjectCard
+    title="This Blog Website"
+    desc="此博客网站的静态页面"
+    url="https://github.com/PrekrasnoyeDalekov/astroProject"
+    badge="Astro"
+  />
+  <ProjectCard
+    title="CS:APP学习记录"
+    desc="CMU 15-213课程的学习记录,包含所有7个lab的代码实现和Markdown笔记."
+    url="https://github.com/PrekrasnoyeDalekov/CS-APP"
+    badge="C"
+  />
+  <ProjectCard
+    title="Waline"
+    desc="我参与贡献的开源项目,一个基于LeanCloud的评论系统."
+    url="https://github.com/walinejs/waline"
+    badge="JavaScript"
+  />
+</BaseLayout>

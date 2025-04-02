@@ -1,0 +1,58 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseCard from "../components/BaseCard.astro";
+import TimeLine from "../components/mdx/TimeLine.astro";
+import Search from "astro-pagefind/components/Search";
+import { getCollection } from "astro:content";
+import dayjs from "dayjs";
+
+const posts = await getCollection("blog");
+
+// 定义分组对象的类型
+interface GroupedPosts {
+  [year: string]: {
+    year: string;
+    event: string;
+    url: string;
+    pubDate: string;
+  }[];
+}
+
+// 按日期倒序排列
+const sortedPosts = posts.sort((a, b) => new Date(b.data.pubDate).valueOf() - new Date(a.data.pubDate).valueOf());
+
+// 按年份分组
+const groupedPosts = sortedPosts.reduce<GroupedPosts>((acc, post) => {
+  const date = new Date(post.data.pubDate);
+  const year = dayjs(date).format("YYYY");
+
+  if (!acc[year]) acc[year] = []; // 初始化年份分组
+
+  acc[year].push({
+    year: `${dayjs(date).format("YYYY-MM-DD")}`,
+    event: post.data.title,
+    url: `/blog/${post.slug}`,
+    pubDate: dayjs(post.data.pubDate).format("YYYY-MM-DD"),
+  });
+
+  return acc;
+}, {} as GroupedPosts); // 初始化 acc 的类型
+---
+
+<BaseLayout title="Archive">
+  <BaseCard title="search">
+    <Search id="search" className="pagefind-ui" uiOptions={{ showImages: false }} />
+  </BaseCard>
+  <BaseCard title="Archive">
+    <h1>Archive</h1>
+    <hr />
+    {
+      Object.keys(groupedPosts).sort((a, b) => b.localeCompare(a)).map((year) => (
+        <div>
+          <h2 id="archive-year">{year}</h2>
+          <TimeLine items={groupedPosts[year]} />
+        </div>
+      ))
+    }
+  </BaseCard>
+</BaseLayout>

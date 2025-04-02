@@ -7,7 +7,7 @@
 .github/
 
 # build output
-src/
+README.md
 # generated types
 .astro/
 

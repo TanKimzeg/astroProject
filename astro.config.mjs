@@ -58,7 +58,12 @@ export default defineConfig({
       },
       transformers,
     },
-    remarkPlugins: [remarkMath, remarkAddAnchor, remarkReadingTime, remarkHeadingExtractor],
+    remarkPlugins: [
+      remarkMath, 
+      remarkAddAnchor, 
+      remarkReadingTime, 
+      remarkHeadingExtractor, 
+    ],
     rehypePlugins: [rehypeKatex, rehypeFadeInUp, [
       rehypeExternalLinks,
       {
