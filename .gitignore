@@ -1,7 +1,8 @@
 # vscode setting
 .vscode/
 
-# public pictures
+# source
+src/ 
 
 # github
 .github/
