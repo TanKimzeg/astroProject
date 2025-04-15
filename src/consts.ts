@@ -62,7 +62,7 @@ export const menuItems = [
   }, // Blog page with sub-items
   {
     id: "project",
-    text: "Project",
+    text: "Projects",
     href: "/project",
     svg: "material-symbols:code-blocks-outline",
     target: "_self",
@@ -74,13 +74,13 @@ export const menuItems = [
     svg: "material-symbols:archive-outline-rounded",
     target: "_self",
   }, // Archive page
-  // {
-  //   id: "friend",
-  //   text: "Friend",
-  //   href: "/friend",
-  //   svg: "material-symbols:supervisor-account-outline-rounded",
-  //   target: "_self",
-  // }, // Friends page
+  {
+    id: "friend",
+    text: "Friends",
+    href: "/friend",
+    svg: "material-symbols:supervisor-account-outline-rounded",
+    target: "_self",
+  }, // Friends page
   // {
   //   id: "contact",
   //   text: "Contact",
