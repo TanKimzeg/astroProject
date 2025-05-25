@@ -99,7 +99,7 @@ export const socialIcons = [
   //   svg: "ri:cup-line",
   // },
   {
-    href: "https://github.com/PrekrasnoyeDalekov",
+    href: "https://github.com/TanKimzeg",
     ariaLabel: "Github",
     title: "Github",
     svg: "ri:github-line",
@@ -116,12 +116,12 @@ export const socialIcons = [
     title: "BiliBili",
     svg: "ri:bilibili-line",
   },
-  {
-    href: "https://x.com/kimzegtan",
-    ariaLabel: "X",
-    title: "X",
-    svg: "ri:twitter-x-line",
-  },
+  // {
+  //   href: "https://x.com/kimzegtan",
+  //   ariaLabel: "X",
+  //   title: "X",
+  //   svg: "ri:twitter-x-line",
+  // },
   // {
   //   href: "/rss.xml",
   //   ariaLabel: "RSS Feed",
