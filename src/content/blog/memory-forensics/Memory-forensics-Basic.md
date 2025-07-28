@@ -4,9 +4,6 @@ description: "本章简单介绍了进行内存取证所需的软硬件知识"
 pubDate: 2025 03 29 
 categories: 
   - tech
-tags:
-  - os
-  - 内存取证
 ---
 
 基于在CS:APP中学习的内存相关知识,我开启了内存取证的新坑...🤓

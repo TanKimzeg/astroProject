@@ -5,7 +5,7 @@ pubDate: "2025 2 17"
 categories:
   - tech
 tags: 
-  - vim
+  - Linux
 ---
 
 [【Vim】可能是B站最系统的Vim教程](https://www.bilibili.com/video/BV1s4421A7he)

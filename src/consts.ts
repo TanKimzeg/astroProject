@@ -122,10 +122,10 @@ export const socialIcons = [
   //   title: "X",
   //   svg: "ri:twitter-x-line",
   // },
-  // {
-  //   href: "/rss.xml",
-  //   ariaLabel: "RSS Feed",
-  //   title: "RSS Feed",
-  //   svg: "ri:rss-line",
-  // },
+  {
+    href: "/rss.xml",
+    ariaLabel: "RSS Feed",
+    title: "RSS Feed",
+    svg: "ri:rss-line",
+  },
 ];
